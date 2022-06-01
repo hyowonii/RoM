@@ -54,11 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
         String loc = "In Ewha womans university";
         String content1 = "정문에 디올 사진 걸린 거 봄? 짱이다\n너무 신기해~~";
-        String content2 = "정문 최고 맛집이 어디임? 왤케 사라진\\n식당이 많은거야ㅠㅠ 정말 속상해..";
-        String content3 = "정문에서 아산 공학관 몇 분 컷 가능?\\n 나 지금 이대역임ㅠ";
+        String content2 = "정문 최고 맛집이 어디임? 왤케 사라진\n식당이 많은거야ㅠㅠ 정말 속상해..";
+        String content3 = "정문에서 아산 공학관 몇 분 컷 가능?\n 나 지금 이대역임ㅠ";
         myData.add(new MyData("___kwon___", loc, content1, "Be first to reply...                                                                34 ♥", R.drawable.photo1 ));
         myData.add(new MyData("hand_ewha", loc, content2,  "3 comments...                                                                       12 ♥", R.drawable.photo1));
-        myData.add(new MyData("이화여니_니니", loc, content3, "Be first to reply...                                                                34 ♥", R.drawable.photo1 ));
+        myData.add(new MyData("이화여니_니", loc, content3, "Be first to reply...                                                                34 ♥", R.drawable.photo1 ));
 
 //        calendarView.setOnDateChangeListener( new CalendarView.OnDateChangeListener() {
 //            @Override
