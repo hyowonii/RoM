@@ -22,7 +22,7 @@
             android:background="@drawable/radius"
             android:backgroundTint="@color/main_color"
             android:gravity="center"
-            android:text="방 이름"
+            android:text="Ewha"
             tools:layout_editor_absoluteX="73dp"
             tools:layout_editor_absoluteY="113dp" />
 
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="연/월/일"
+            android:text="2022 / 05 / 28"
             android:textSize="20dp" />
 
         <ImageButton
