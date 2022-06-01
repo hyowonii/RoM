@@ -51,6 +51,7 @@
             android:backgroundTint="#687089"
             android:background="@drawable/radius"
             app:tint="@color/white"
+            android:contentDescription="add-img"
             app:srcCompat="@android:drawable/ic_menu_add" />
 
     </LinearLayout>

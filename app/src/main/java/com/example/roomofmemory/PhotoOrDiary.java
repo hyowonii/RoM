@@ -1,28 +1,43 @@
 package com.example.roomofmemory;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 
 import java.io.InputStream;
 
 public class PhotoOrDiary extends AppCompatActivity {
 
+    ImageButton addPhotoVideo;
+    ImageButton addDiary;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_or_diary);
+
+        addPhotoVideo = (ImageButton)findViewById(R.id.addPhotoVideo);
+        addDiary = (ImageButton) findViewById(R.id.addDiary);
+
+        addPhotoVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), SelectPhoto.class);
+                startActivity(intent);
+            }
+        });
+
+        addDiary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), WriteDiary.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
