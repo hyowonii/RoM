@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="120dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:text="연/월/일" />
 
     <LinearLayout
@@ -26,17 +26,18 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/addPhotoVideo"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:backgroundTint="#8cb1d7"
-                android:clickable="true"
-                android:contentDescription="add_photos_btn"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:adjustViewBounds="false"
+                android:backgroundTint="@color/main_color"
+                android:background="@drawable/shape_of_circle_button"
+                app:tint="@color/black"
+                android:contentDescription="add-photo-video"
                 app:srcCompat="?attr/actionModeCopyDrawable" />
+
 
             <TextView
                 android:id="@+id/textView2"
@@ -46,8 +47,9 @@
                 android:layout_marginTop="30dp"
                 android:text="Photo / Video"
                 android:textAlignment="viewStart"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@+id/floatingActionButton" />
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/floatingActionButton"
+                tools:ignore="RtlCompat" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -67,17 +69,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <ImageButton
+                android:id="@+id/addDiary"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:backgroundTint="#8cb1d7"
-                android:clickable="true"
-                android:contentDescription="add_diary_btn"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_add" />
+                android:adjustViewBounds="false"
+                android:backgroundTint="@color/main_color"
+                android:background="@drawable/shape_of_circle_button"
+                app:tint="@color/black"
+                android:contentDescription="add-diary"
+                app:srcCompat="@android:drawable/ic_menu_add"/>
 
             <TextView
                 android:id="@+id/textView3"
@@ -86,7 +88,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:text="Diary"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView2"
                 app:layout_constraintTop_toBottomOf="@+id/floatingActionButton3" />
