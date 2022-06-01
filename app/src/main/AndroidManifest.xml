@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomofMemory">
         <activity
+            android:name=".WriteDiary"
+            android:exported="false" />
+        <activity
             android:name=".SelectPhoto"
             android:exported="false" />
         <activity

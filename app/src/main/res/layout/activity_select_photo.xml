@@ -19,11 +19,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/accent_color"
         android:layout_gravity="right"
         android:layout_marginRight="10dp"
-        android:text="Done"/>
+        android:backgroundTint="#2196F3"
+        android:textColor="@color/black"
+        android:text="Done" />
 
+<!--    갤러리 구현 필요-->
     <ImageView
         android:id="@+id/galleryImgView"
         android:layout_width="match_parent"
