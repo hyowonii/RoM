@@ -157,7 +157,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/addDiaryBtn"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_gravity="center"
