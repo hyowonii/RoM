@@ -33,7 +33,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="hyowonii, s01-21, yoonjiikim"
+                android:text="hyowonii  s01-21  yoonjiikim"
                 android:layout_marginBottom="5dp"
                 android:textSize="18dp"/>
         </LinearLayout>
@@ -59,16 +59,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="ewha1886, professor5, but531"
+                android:text="ewha1886  professor5  but531"
                 android:layout_marginBottom="5dp"
                 android:textSize="18dp"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="5dp"
-        app:cardUseCompatPadding="true">
+        app:cardUseCompatPadding="true"
+        android:visibility="invisible">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -99,12 +101,27 @@
                     android:onClick="show_msg_dialog"/>
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="hyowon, yoonji, jeongsol"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/txt_people1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="user1"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18dp"/>
+                <TextView
+                    android:id="@+id/txt_people2"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="user2"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18dp"/>
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

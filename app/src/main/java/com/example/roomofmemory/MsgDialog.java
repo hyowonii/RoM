@@ -2,6 +2,8 @@ package com.example.roomofmemory;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -20,6 +22,7 @@ public class MsgDialog extends Dialog {
     }
     //dialog 생성하기
     public void showMsgDialog(){
+
         //참조할 다이얼로그 화면을 연결한다.
         msgDialog.setContentView(R.layout.dialog_message);
 
