@@ -4,11 +4,12 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class CreateRoom extends AppCompatActivity {
+public class CreateRoomActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_actionbar, menu);
@@ -18,6 +19,8 @@ public class CreateRoom extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.tool_home:
+                Intent intent = new Intent(CreateRoomActivity.this, RoomsActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -32,8 +35,5 @@ public class CreateRoom extends AppCompatActivity {
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
 
-        //App Bar 제어를 위해 툴바 액세스
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Creating Room");
     }
 }

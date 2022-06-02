@@ -13,7 +13,7 @@
             android:name=".MessageListActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateRoom"
+            android:name=".CreateRoomActivity"
             android:exported="false" />
         <activity
             android:name=".RoomsActivity"

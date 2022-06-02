@@ -25,7 +25,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:orientation="horizontal">
         <View
             android:layout_width="0dp"
@@ -33,7 +33,7 @@
             android:layout_weight="1"/>
         <ImageButton
             android:id="@+id/imgBtn_msg"
-            android:layout_width="60dp"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
             android:backgroundTint="#fafafa"
             app:srcCompat="@drawable/email"
@@ -46,8 +46,8 @@
         android:orientation="horizontal">
         <LinearLayout
             android:id="@+id/room1"
-            android:layout_marginLeft="4dp"
-            android:layout_width="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="130dp"
             android:layout_height="150dp"
             android:orientation="vertical">
             <TextView
@@ -66,7 +66,7 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/room2"
-            android:layout_width="150dp"
+            android:layout_width="130dp"
             android:layout_height="150dp"
             android:orientation="vertical">
             <TextView
@@ -85,7 +85,7 @@
         </LinearLayout>
         <LinearLayout
             android:id="@+id/room3"
-            android:layout_width="150dp"
+            android:layout_width="130dp"
             android:layout_height="150dp"
             android:orientation="vertical">
             <TextView
@@ -109,8 +109,8 @@
         android:orientation="horizontal">
         <LinearLayout
             android:id="@+id/room4"
-            android:layout_marginLeft="4dp"
-            android:layout_width="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="130dp"
             android:layout_height="150dp"
             android:orientation="vertical">
             <TextView
@@ -120,6 +120,7 @@
                 android:textSize="24dp"
                 android:text="Ewha"/>
             <ImageButton
+                android:id="@+id/imgBtn_room_ewha"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:backgroundTint="#00fafafa"
@@ -127,24 +128,6 @@
                 app:tint="#3D608C"
                 android:scaleType="centerInside"/>
         </LinearLayout>
-        <LinearLayout
-            android:id="@+id/room5"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:orientation="vertical">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:textSize="24dp"
-                android:text=""/>
-            <ImageButton
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:backgroundTint="#00fafafa"
-                app:srcCompat="@drawable/door"
-                app:tint="#3D608C"
-                android:scaleType="centerInside"/>
-        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

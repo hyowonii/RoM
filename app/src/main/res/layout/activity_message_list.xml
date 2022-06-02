@@ -82,13 +82,30 @@
             android:orientation="vertical"
             android:layout_marginLeft="20dp"
             >
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="from. Ewha"
-                android:textSize="20dp"
-                android:textColor="@color/black"
-                android:layout_marginVertical="10dp"/>
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="from."
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginVertical="10dp"/>
+                <Button
+                    android:id="@+id/btn_ewha_msg"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:text="Ewha"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/black"
+                    android:textAllCaps="false"
+                    android:onClick="show_msg_dialog"/>
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

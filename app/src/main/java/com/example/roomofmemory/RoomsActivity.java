@@ -4,37 +4,39 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 public class RoomsActivity extends AppCompatActivity {
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu_actionbar, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
-            case R.id.tool_home:
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
+    ImageButton imgBtn_msg, imgBtn_new_room;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rooms);
 
-        // Toolbar를 액티비티의 App Bar로 지정
-        Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(tb);
+        imgBtn_msg = findViewById(R.id.imgBtn_msg);
+        imgBtn_msg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RoomsActivity.this, MessageListActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        //App Bar 제어를 위해 툴바 액세스
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Rooms");
+        imgBtn_new_room = findViewById(R.id.imgBtn_room_ewha);
+        imgBtn_new_room.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RoomsActivity.this, CreateRoomActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

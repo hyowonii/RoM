@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MessageListActivity extends AppCompatActivity {
     @Override
@@ -31,8 +32,10 @@ public class MessageListActivity extends AppCompatActivity {
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
 
-        //App Bar 제어를 위해 툴바 액세스
-        ActionBar ab = getSupportActionBar();
-        ab.setTitle("Message");
+    }
+    //activity_message_list 에서 msg_ewha_btn 의 onclick 메소드
+    public void show_msg_dialog(View v){
+        //클릭 시 msgDialog를 띄워준다
+        MsgDialog.getInstance(this).showMsgDialog();
     }
 }
