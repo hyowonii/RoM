@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,13 @@ public class MsgDialog extends Dialog {
                 Toast.makeText(getContext(), "초대를 거절했습니다.", Toast.LENGTH_SHORT).show();
                 msgDialog.dismiss();
                 // 초대 거절했을 때 할 일
+            }
+        });
+        ImageButton imgBtn_close = msgDialog.findViewById(R.id.imgBtn_close);
+        imgBtn_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                msgDialog.dismiss();
             }
         });
         msgDialog.show();

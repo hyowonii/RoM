@@ -13,6 +13,6 @@
         android:layout_gravity="center_vertical"
         app:srcCompat="@drawable/rom"
         android:scaleType="centerInside"
-        android:backgroundTint="@color/white"/>
+        android:backgroundTint="#00FFFFFF"/>
 
 </LinearLayout>
