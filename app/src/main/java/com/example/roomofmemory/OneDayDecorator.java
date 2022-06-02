@@ -1,5 +1,9 @@
 package com.example.roomofmemory;
 
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
@@ -10,10 +14,12 @@ import java.util.HashSet;
 
 public class OneDayDecorator implements DayViewDecorator {
 
+    private Drawable drawable;
     private HashSet<CalendarDay> dates;
 
-    public OneDayDecorator(Collection<CalendarDay> dates){
+    public OneDayDecorator(Collection<CalendarDay> dates, Activity context){
         this.dates = new HashSet<>(dates);
+        drawable = context.getResources().getDrawable(R.drawable.date_selector);
     }
 
     @Override
@@ -23,6 +29,6 @@ public class OneDayDecorator implements DayViewDecorator {
 
     @Override
     public void decorate(DayViewFacade view) {
-        view.addSpan(R.drawable.pin);
+        view.setSelectionDrawable(drawable);
     }
 }

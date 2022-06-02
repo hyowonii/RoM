@@ -29,11 +29,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         View btn = findViewById(R.id.btn);
-        btn.setOnClickListener(view ->{
-            Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
-            startActivity(intent);
-            finish();
-        });
+        btn.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }) ;
     }
-
 }
