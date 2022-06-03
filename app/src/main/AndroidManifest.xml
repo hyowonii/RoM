@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomofMemory">
         <activity
+            android:name=".MessageListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateRoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RoomsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
