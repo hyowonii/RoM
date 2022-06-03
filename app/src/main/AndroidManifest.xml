@@ -20,6 +20,8 @@
             android:exported="false" />
         <activity
             android:name=".PhotoOrDiary"
+            android:exported="false" />
+        <activity
             android:name=".MessageListActivity"
             android:exported="false" />
         <activity

@@ -13,8 +13,6 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     private ImageButton btn_main;
 
-    Button btn1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
