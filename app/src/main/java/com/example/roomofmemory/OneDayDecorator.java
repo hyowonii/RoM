@@ -3,6 +3,7 @@ package com.example.roomofmemory;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.util.Log;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
@@ -19,6 +20,7 @@ public class OneDayDecorator implements DayViewDecorator {
 
     public OneDayDecorator(Collection<CalendarDay> dates, Activity context){
         this.dates = new HashSet<>(dates);
+        Log.v("selected dates", dates.toString());
         drawable = context.getResources().getDrawable(R.drawable.date_selector);
     }
 

@@ -1,11 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-<<<<<<< HEAD
     <style name="Theme.RoomofMemory" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-=======
-    <style name="Theme.RoomofMemory" parent="Theme.AppCompat.DayNight.NoActionBar">
-
->>>>>>> 7f95bfa124a28c336be2c293ab6b8cf73759a83c
         <!-- Primary brand color. -->
         <item name="colorPrimary">#8cb1d7</item>
         <item name="colorPrimaryVariant">#8cb1d7</item>

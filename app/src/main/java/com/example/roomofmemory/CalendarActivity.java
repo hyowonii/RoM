@@ -1,37 +1,30 @@
 package com.example.roomofmemory;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.CalendarView;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.List;
 
 public class CalendarActivity extends AppCompatActivity {
 
     //search 관련
     private SearchView searchView;
     public ArrayList<MyData> myData;
-    private MaterialCalendarView calendarView;
+    public MaterialCalendarView calendarView;
+
+    //pin 관련
+    private ImageButton plusBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,18 +36,32 @@ public class CalendarActivity extends AppCompatActivity {
 
         myData = new ArrayList<>();
 
-        //특정 날짜에 핀
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MONTH, -2);
-        ArrayList<CalendarDay> dates = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
-            CalendarDay day = CalendarDay.from(calendar);
-            dates.add(day);
-            calendar.add(Calendar.DATE, 5);
-        }
+        plusBtn = findViewById(R.id.plusBtn);
 
-        calendarView.setSelectedDate(calendar);
-        calendarView.addDecorators(new OneDayDecorator(dates, this));
+        Calendar calendar = Calendar.getInstance();
+        ArrayList<CalendarDay> dates = new ArrayList<>();
+
+        plusBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                //날짜 받아와서 dates, calendar 에 저장
+                PinDialog pinDialog = new PinDialog(CalendarActivity.this, new PinDialog.DialogListener() {
+                    @Override
+                    public void clickBtn(String data) {
+                        if (data.equals("accepted")) {
+                            CalendarDay currentDate = calendarView.getSelectedDate();
+                            dates.add(currentDate);
+                            calendar.setTime(currentDate.getDate());
+                            Toast.makeText(CalendarActivity.this, "pinned", Toast.LENGTH_SHORT).show();
+                            calendarView.setSelectedDate(currentDate.getDate());
+                            calendarView.addDecorators(new OneDayDecorator(dates, CalendarActivity.this));
+                        }
+                    }
+                });
+                pinDialog.show();
+                return true;
+            }
+        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -78,7 +85,8 @@ public class CalendarActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 return false;
             }
-        });
 
+        });
     }
+
 }

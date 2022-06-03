@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RoomsActivity.class);
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
                 startActivity(intent);
             }
         });
