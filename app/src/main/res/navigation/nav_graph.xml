@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.roomofmemory.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/calendarActivity"
+        android:name="com.example.roomofmemory.CalendarActivity"
+        android:label="activity_calendar"
+        tools:layout="@layout/activity_calendar" />
+    <activity
+        android:id="@+id/diaryDetailActivity"
+        android:name="com.example.roomofmemory.DiaryDetailActivity"
+        android:label="activity_diary_detail"
+        tools:layout="@layout/activity_diary_detail" />
+    <activity
+        android:id="@+id/searchActivity"
+        android:name="com.example.roomofmemory.SearchActivity"
+        android:label="activity_search"
+        tools:layout="@layout/activity_search" />
+</navigation>
