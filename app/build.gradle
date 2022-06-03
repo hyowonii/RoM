@@ -41,7 +41,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation "androidx.cardview:cardview:1.0.0"
 
-    implementation group: 'com.prolificinteractive', name: 'material-calendarview', version: '1.4.3'
+    //implementation group: 'com.prolificinteractive', name: 'material-calendarview', version: '1.4.3'
+    implementation 'com.prolificinteractive:material-calendarview:1.4.3'
     implementation 'com.jakewharton.threetenabp:threetenabp:1.1.1'
 
     implementation 'androidx.appcompat:appcompat:1.4.1'
