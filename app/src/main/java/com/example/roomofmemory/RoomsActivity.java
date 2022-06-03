@@ -62,7 +62,6 @@ public class RoomsActivity extends AppCompatActivity {
                 } else if (flag ==1){
                     //new room 만들었다면 그 방으로 이동
                 }
-
             }
         });
     }

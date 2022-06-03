@@ -5,7 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_create_room.xml" value="0.2429758363569965" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_message_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_message_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_rooms.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_rooms_added.xml" value="0.15760869565217392" />
         <entry key="app/src/main/res/layout/dialog_message.xml" value="0.25" />
