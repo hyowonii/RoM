@@ -7,8 +7,6 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.CalendarView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,6 +43,9 @@ public class CalendarActivity extends AppCompatActivity {
     private MaterialCalendarView calendarView;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
+
+    //pin 관련
+    private ImageButton plusBtn;
 
     TextView txt_roomName;
     String room_name, today_date;
@@ -89,18 +91,32 @@ public class CalendarActivity extends AppCompatActivity {
         txt_roomName.setText(room_name);
         myData = new ArrayList<>();
 
-        //특정 날짜에 핀
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MONTH, -2);
-        ArrayList<CalendarDay> dates = new ArrayList<>();
-        for (int i = 0; i < 30; i++) {
-            CalendarDay day = CalendarDay.from(calendar);
-            dates.add(day);
-            calendar.add(Calendar.DATE, 5);
-        }
+        plusBtn = findViewById(R.id.plusBtn);
 
-        calendarView.setSelectedDate(calendar);
-        calendarView.addDecorators(new OneDayDecorator(dates, this));
+        Calendar calendar = Calendar.getInstance();
+        ArrayList<CalendarDay> dates = new ArrayList<>();
+
+        plusBtn.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                //날짜 받아와서 dates, calendar 에 저장
+                PinDialog pinDialog = new PinDialog(CalendarActivity.this, new PinDialog.DialogListener() {
+                    @Override
+                    public void clickBtn(String data) {
+                        if (data.equals("accepted")) {
+                            CalendarDay currentDate = calendarView.getSelectedDate();
+                            dates.add(currentDate);
+                            calendar.setTime(currentDate.getDate());
+                            Toast.makeText(CalendarActivity.this, "pinned", Toast.LENGTH_SHORT).show();
+                            calendarView.setSelectedDate(currentDate.getDate());
+                            calendarView.addDecorators(new OneDayDecorator(dates, CalendarActivity.this));
+                        }
+                    }
+                });
+                pinDialog.show();
+                return true;
+            }
+        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -125,22 +141,21 @@ public class CalendarActivity extends AppCompatActivity {
                 return false;
             }
         });
-
+            
         imgBtn_plus = findViewById(R.id.plusBtn);
         imgBtn_plus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mNow = System.currentTimeMillis();
-                mDate = new Date(mNow);
-                today_date = mFormat.format(mDate);
-                editor.putString("today_date",today_date);
-                editor.commit();
-                Intent intent = new Intent(CalendarActivity.this, PhotoOrDiary.class);
-                intent.putExtra("date", today_date);
-                startActivity(intent);
-            }
-        });
-
-
+                @Override
+                public void onClick(View view) {
+                    mNow = System.currentTimeMillis();
+                    mDate = new Date(mNow);
+                    today_date = mFormat.format(mDate);
+                    editor.putString("today_date",today_date);
+                    editor.commit();
+                    Intent intent = new Intent(CalendarActivity.this, PhotoOrDiary.class);
+                    intent.putExtra("date", today_date);
+                    startActivity(intent);
+                }
+            });
     }
+
 }
