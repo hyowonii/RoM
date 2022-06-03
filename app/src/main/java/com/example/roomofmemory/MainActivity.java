@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
         pref = getSharedPreferences("info",MODE_PRIVATE);
         editor = pref.edit();
-        editor.remove("room_name");
+        //editor.remove("room_name");
+        editor.clear();
         editor.commit();
 
         btn_main = findViewById(R.id.imgBtn_main);
