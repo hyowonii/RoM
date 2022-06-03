@@ -3,16 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/drawable/radius.xml" value="0.2265" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/drawable/shape_of_circle_button.xml" value="0.315" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/layout/activity_date_detail.xml" value="0.264" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/layout/activity_main.xml" value="0.1875" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/layout/activity_photo_or_diary.xml" value="0.264" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/layout/activity_select_photo.xml" value="0.264" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/layout/activity_write_diary.xml" value="0.33559782608695654" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/layout/photo_or_diary.xml" value="0.25" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/layout/post.xml" value="0.1331521739130435" />
-        <entry key="..\:/Users/USER/AndroidStudioProjects/RoM/app/src/main/res/layout/post_list.xml" value="0.264" />
+        <entry key="app/src/main/res/drawable/radius.xml" value="0.2265" />
+        <entry key="app/src/main/res/drawable/shape_of_circle_button.xml" value="0.315" />
+        <entry key="app/src/main/res/layout/activity_date_detail.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/activity_photo_or_diary.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/activity_select_photo.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/activity_write_diary.xml" value="0.33559782608695654" />
+        <entry key="app/src/main/res/layout/photo_or_diary.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/post.xml" value="0.1331521739130435" />
+        <entry key="app/src/main/res/layout/post_list.xml" value="0.264" />
+        <entry key="app/src/main/res/layout/activity_create_room.xml" value="0.2429758363569965" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_message_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_rooms.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_rooms_added.xml" value="0.15760869565217392" />
+        <entry key="app/src/main/res/layout/dialog_message.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.1925925925925926" />
+        <entry key="app/src/main/res/menu/menu_actionbar.xml" value="0.25" />
       </map>
     </option>
   </component>
