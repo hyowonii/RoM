@@ -21,7 +21,7 @@ import java.util.Date;
 
 public class DateDetail extends AppCompatActivity {
 
-    ImageButton addDiary, imgBtn_before, imgBtn_after;
+    ImageButton addDiary, imgBtn_before, imgBtn_after, imgBtn_gal;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     TextView txt_roomName, txt_date;
@@ -104,6 +104,16 @@ public class DateDetail extends AppCompatActivity {
                 cal.add(Calendar.DATE, 1);
                 date = mFormat.format(cal.getTime()).toString();
                 txt_date.setText(date);
+            }
+        });
+
+        imgBtn_gal = findViewById(R.id.imageButton5);
+        imgBtn_gal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
+                intent.putExtra("date",date);
+                startActivity(intent);
             }
         });
     }

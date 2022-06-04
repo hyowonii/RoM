@@ -8,8 +8,23 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class GalleryActivity extends AppCompatActivity {
+    String date;
+    TextView txt_date;
+
+    private int[] imageIDs = new int[]{
+        R.drawable.img1,
+            R.drawable.img2,
+            R.drawable.img3,
+            R.drawable.img4,
+    };
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu_actionbar, menu);
@@ -39,5 +54,16 @@ public class GalleryActivity extends AppCompatActivity {
 
         ActionBar ab = getSupportActionBar();
         ab.setTitle("Gallery");
+
+        Intent intent = getIntent();
+        date = intent.getStringExtra("date");
+
+        txt_date = findViewById(R.id.txt_date);
+        txt_date.setText(date);
+
+        GridView images = findViewById(R.id.grid_view);
+        GalleryAdapter imageAdapter = new GalleryAdapter(this, imageIDs);
+        images.setAdapter(imageAdapter);
+
     }
 }
