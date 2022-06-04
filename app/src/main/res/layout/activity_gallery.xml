@@ -37,17 +37,47 @@
             android:text="2022 / 05 / 28"
             android:textSize="24dp" />
     </LinearLayout>
-    <GridView
-        android:id="@+id/grid_view"
+    <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:columnWidth="90dp"
-        android:numColumns="3"
-        android:verticalSpacing="10dp"
-        android:horizontalSpacing="10dp"
-        android:stretchMode="columnWidth">
-
-    </GridView>
+        android:orientation="horizontal"
+        android:columnCount="3"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="fill_horizontal">
+        <ImageView
+            android:layout_width="135dp"
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/img1"
+            />
+        <ImageView
+            android:layout_width="135dp"
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="top"
+            app:srcCompat="@drawable/img2"
+            />
+        <ImageView
+            android:layout_width="135dp"
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="top"
+            app:srcCompat="@drawable/img3"
+            />
+        <ImageView
+            android:layout_width="135dp"
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="top"
+            app:srcCompat="@drawable/img4"
+            />
+        <ImageView
+            android:id="@+id/img_new"
+            android:layout_width="135dp"
+            android:layout_height="140dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="top"
+            app:srcCompat="@drawable/rom"
+            />
+    </GridLayout>
 </LinearLayout>

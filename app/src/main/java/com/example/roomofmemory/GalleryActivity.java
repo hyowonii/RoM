@@ -4,8 +4,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,13 +22,11 @@ import android.widget.TextView;
 public class GalleryActivity extends AppCompatActivity {
     String date;
     TextView txt_date;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
 
-    private int[] imageIDs = new int[]{
-        R.drawable.img1,
-            R.drawable.img2,
-            R.drawable.img3,
-            R.drawable.img4,
-    };
+    ImageView img_new;
+    Bitmap bmp;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -48,6 +51,9 @@ public class GalleryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
 
+        pref = getSharedPreferences("info", Activity.MODE_PRIVATE);
+        editor = pref.edit();
+
         // Toolbar를 액티비티의 App Bar로 지정
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
@@ -61,9 +67,20 @@ public class GalleryActivity extends AppCompatActivity {
         txt_date = findViewById(R.id.txt_date);
         txt_date.setText(date);
 
-        GridView images = findViewById(R.id.grid_view);
-        GalleryAdapter imageAdapter = new GalleryAdapter(this, imageIDs);
-        images.setAdapter(imageAdapter);
+        img_new = findViewById(R.id.img_new);
+        bmp = StringToBitmap(pref.getString("newImage",""));
+        img_new.setImageBitmap(bmp);
 
+    }
+    //  String ->  BitMap
+    public static Bitmap StringToBitmap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
 }

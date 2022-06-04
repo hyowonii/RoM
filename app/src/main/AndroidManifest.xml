@@ -12,9 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RoomofMemory">
         <activity
-            android:name=".ImageActivity"
-            android:exported="false" />
-        <activity
             android:name=".GalleryActivity"
             android:exported="false" />
         <activity
