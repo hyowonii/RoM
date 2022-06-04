@@ -51,21 +51,26 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
 
-<!--        갤러리로 이동?-->
         <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:id="@+id/addImageOnDiaryBtn"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:backgroundTint="#687089"
             android:background="@drawable/radius"
             app:tint="@color/white"
             android:contentDescription="add-img"
             app:srcCompat="@android:drawable/ic_menu_add" />
 
+        <ImageView
+            android:id="@+id/addImageOnDiary"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="5dp"/>
+
     </LinearLayout>
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/newContentInput"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
