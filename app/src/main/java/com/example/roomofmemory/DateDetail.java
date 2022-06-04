@@ -7,11 +7,17 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.ParseException;
@@ -22,10 +28,14 @@ import java.util.Date;
 public class DateDetail extends AppCompatActivity {
 
     ImageButton addDiary, imgBtn_before, imgBtn_after, imgBtn_gal;
+    static boolean addDiaryBool = false;    // 다이어리 목록 생성 여부
+
     SharedPreferences pref;
     SharedPreferences.Editor editor;
-    TextView txt_roomName, txt_date;
-    String room_name, today_date, date;
+    TextView txt_roomName, txt_date, newDiaryContent;
+    LinearLayout diaryDetail1, newDiary;
+    ImageView newDiaryImage;
+    String room_name, today_date, date, newContentInput;
     Calendar cal;
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy / MM / dd");
@@ -78,6 +88,24 @@ public class DateDetail extends AppCompatActivity {
         txt_date = findViewById(R.id.textView6);
         txt_date.setText(date);
 
+        newDiary = (LinearLayout) findViewById(R.id.newDiary);
+        if(addDiaryBool == false) {
+            newDiary.setVisibility(View.GONE);
+        } else {
+            newDiary.setVisibility(View.VISIBLE);
+        }
+
+        // 새로운 다이어리 작성 시 나타나는 내용
+        //내용
+        newDiaryContent = (TextView) findViewById(R.id.newDiaryContent);
+        newContentInput = pref.getString("newContentInput", newContentInput);
+        newDiaryContent.setText(newContentInput);
+        //사진
+        String img = pref.getString("addImageOnDiary", "");
+        Bitmap bitmap = StringToBitmap(img);
+        newDiaryImage = (ImageView) findViewById(R.id.newDiaryImage);
+        newDiaryImage.setImageBitmap(bitmap);
+
         addDiary = (ImageButton)findViewById(R.id.addDiaryBtn);
         addDiary.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,5 +144,33 @@ public class DateDetail extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        // 다이어리 디테일로 이동
+        diaryDetail1 = (LinearLayout) findViewById(R.id.diaryDetail1);
+        diaryDetail1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), DiaryDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+        newDiary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), DiaryDetailActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    //  String ->  BitMap
+    public static Bitmap StringToBitmap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+            return bitmap;
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
 }
