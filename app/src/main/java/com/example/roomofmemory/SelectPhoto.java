@@ -9,7 +9,9 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
@@ -17,11 +19,14 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import android.widget.TextView;
@@ -33,7 +38,10 @@ public class SelectPhoto extends AppCompatActivity {
     ImageView imageView;
     Uri uri;
     TextView txt_date;
-    String date;
+    String date, img_string;
+    Bitmap bitmap;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -60,6 +68,9 @@ public class SelectPhoto extends AppCompatActivity {
 
         Intent intent = getIntent();
         date = intent.getStringExtra("date");
+
+        pref = getSharedPreferences("info", Activity.MODE_PRIVATE);
+        editor = pref.edit();
 
         // Toolbar를 액티비티의 App Bar로 지정
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
@@ -104,8 +115,11 @@ public class SelectPhoto extends AppCompatActivity {
                         uri = (Uri)result.getData().getData();
 
                         try {
-                            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                             imageView.setImageBitmap(bitmap);
+                            img_string = BitmapToString(bitmap);
+                            editor.putString("newImage",img_string);
+                            editor.commit();
                         } catch(Exception e) {
                             e.printStackTrace();
                         }
@@ -114,4 +128,12 @@ public class SelectPhoto extends AppCompatActivity {
                 }
             }
     );
+    // Bitmap -> String
+    public static String BitmapToString(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 0, baos);
+        byte[] bytes = baos.toByteArray();
+        String temp = Base64.encodeToString(bytes, Base64.DEFAULT);
+        return temp;
+    }
 }

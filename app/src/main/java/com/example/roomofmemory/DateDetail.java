@@ -27,9 +27,9 @@ import java.util.Date;
 
 public class DateDetail extends AppCompatActivity {
 
+    ImageButton addDiary, imgBtn_before, imgBtn_after, imgBtn_gal;
     static boolean addDiaryBool = false;    // 다이어리 목록 생성 여부
 
-    ImageButton addDiary, imgBtn_before, imgBtn_after;
     SharedPreferences pref;
     SharedPreferences.Editor editor;
     TextView txt_roomName, txt_date, newDiaryContent;
@@ -135,6 +135,15 @@ public class DateDetail extends AppCompatActivity {
             }
         });
 
+        imgBtn_gal = findViewById(R.id.imageButton5);
+        imgBtn_gal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), GalleryActivity.class);
+                intent.putExtra("date",date);
+                startActivity(intent);
+            }
+        });
         // 다이어리 디테일로 이동
         diaryDetail1 = (LinearLayout) findViewById(R.id.diaryDetail1);
         diaryDetail1.setOnClickListener(new View.OnClickListener() {
