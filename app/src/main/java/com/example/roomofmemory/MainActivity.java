@@ -20,14 +20,15 @@ public class MainActivity extends AppCompatActivity {
 
         pref = getSharedPreferences("info",MODE_PRIVATE);
         editor = pref.edit();
-        editor.remove("room_name");
+        //editor.remove("room_name");
+        editor.clear();
         editor.commit();
 
         btn_main = findViewById(R.id.imgBtn_main);
         btn_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, RoomsActivity.class);
+                Intent intent = new Intent(MainActivity.this, CalendarActivity.class);
                 startActivity(intent);
             }
         });

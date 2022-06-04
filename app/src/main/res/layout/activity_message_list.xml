@@ -120,6 +120,14 @@
                     android:text="user2"
                     android:layout_marginBottom="5dp"
                     android:textSize="18dp"/>
+                <TextView
+                    android:id="@+id/txt_people3"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="jeongsol"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="18dp"/>
             </LinearLayout>
 
         </LinearLayout>

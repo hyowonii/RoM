@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -30,6 +31,8 @@ public class PhotoOrDiary extends AppCompatActivity {
 
     ImageButton addPhotoVideo;
     ImageButton addDiary;
+    TextView txt_date;
+    String date;
 
     Uri uri;
     ImageView imageView;
@@ -57,6 +60,9 @@ public class PhotoOrDiary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo_or_diary);
 
+        Intent intent = getIntent();
+        date = intent.getStringExtra("date");
+
         addPhotoVideo = (ImageButton)findViewById(R.id.addPhotoVideo);
         addDiary = (ImageButton) findViewById(R.id.addDiary);
 
@@ -73,6 +79,7 @@ public class PhotoOrDiary extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SelectPhoto.class);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
@@ -81,9 +88,13 @@ public class PhotoOrDiary extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), WriteDiary.class);
+                intent.putExtra("date", date);
                 startActivity(intent);
             }
         });
+
+        txt_date = findViewById(R.id.textView6);
+        txt_date.setText(date);
 
     }
 

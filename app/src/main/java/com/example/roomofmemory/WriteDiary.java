@@ -13,6 +13,8 @@ import android.widget.Button;
 public class WriteDiary extends AppCompatActivity {
 
     Button doneWrite;
+    String date;
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -38,6 +40,9 @@ public class WriteDiary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_diary);
 
+        Intent intent = getIntent();
+        date = intent.getStringExtra("date");
+
         // Toolbar를 액티비티의 App Bar로 지정
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
@@ -50,6 +55,7 @@ public class WriteDiary extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), DateDetail.class);
+                intent.putExtra("date",date);
                 startActivity(intent);
             }
         });

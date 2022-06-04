@@ -61,8 +61,9 @@ public class RoomsActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else if (flag ==1){
                     //new room 만들었다면 그 방으로 이동
+                    Intent intent = new Intent(RoomsActivity.this, CalendarActivity.class);
+                    startActivity(intent);
                 }
-
             }
         });
     }

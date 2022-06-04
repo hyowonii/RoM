@@ -22,9 +22,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import android.widget.TextView;
 
 public class SelectPhoto extends AppCompatActivity {
 
@@ -32,6 +32,8 @@ public class SelectPhoto extends AppCompatActivity {
     Button doneBtn;
     ImageView imageView;
     Uri uri;
+    TextView txt_date;
+    String date;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -56,6 +58,9 @@ public class SelectPhoto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_photo);
 
+        Intent intent = getIntent();
+        date = intent.getStringExtra("date");
+
         // Toolbar를 액티비티의 App Bar로 지정
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
@@ -75,12 +80,15 @@ public class SelectPhoto extends AppCompatActivity {
                 startActivityResult.launch(intent);
             }
         });
+        txt_date = findViewById(R.id.textView6);
+        txt_date.setText(date);
 
         doneBtn = (Button)findViewById(R.id.doneSelect);
         doneBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), DateDetail.class);
+                intent.putExtra("date",date);
                 startActivity(intent);
             }
         });
