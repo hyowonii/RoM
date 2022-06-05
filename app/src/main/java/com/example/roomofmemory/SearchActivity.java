@@ -43,6 +43,10 @@ public class SearchActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        String query = intent.getStringExtra("query");
+
+        //해당 쿼리가 들어가 있는 content, nickname 가져와서 myData에 set하기
+
         if(intent.getStringExtra("t").equals("ok")){
             String loc = "In Ewha womans university";
             String content1 = "정문에 디올 사진 걸린 거 봄? 짱이다\n너무 신기해~~";
