@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -95,6 +96,21 @@ public class CalendarActivity extends AppCompatActivity {
 
         Calendar calendar = Calendar.getInstance();
         ArrayList<CalendarDay> dates = new ArrayList<>();
+
+        calendarView.setOnDateChangedListener(new OnDateSelectedListener() {
+            long delay = 0;
+            @Override
+            public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
+                if (System.currentTimeMillis() > delay){
+                    delay = System.currentTimeMillis() + 200;
+                    return;
+                }
+                if( System.currentTimeMillis() <= delay ){
+                    Intent intent = new Intent(getApplicationContext(), DateDetail.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
         plusBtn.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
