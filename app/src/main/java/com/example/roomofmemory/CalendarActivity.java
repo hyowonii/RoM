@@ -29,6 +29,7 @@ import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -107,6 +108,9 @@ public class CalendarActivity extends AppCompatActivity {
                 }
                 if( System.currentTimeMillis() <= delay ){
                     Intent intent = new Intent(getApplicationContext(), DateDetail.class);
+                    Date selectedDate = date.getDate();
+                    String day = mFormat.format(selectedDate);
+                    intent.putExtra("date", day);
                     startActivity(intent);
                 }
             }

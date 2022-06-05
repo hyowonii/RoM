@@ -68,6 +68,9 @@ public class PhotoOrDiary extends AppCompatActivity {
 
         imageView = (ImageView)findViewById(R.id.galleryImgView);
 
+        txt_date = findViewById(R.id.textView6);
+        txt_date.setText(date);
+
         // Toolbar를 액티비티의 App Bar로 지정
         Toolbar tb = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(tb);
@@ -92,9 +95,6 @@ public class PhotoOrDiary extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        txt_date = findViewById(R.id.textView6);
-        txt_date.setText(date);
 
     }
 
