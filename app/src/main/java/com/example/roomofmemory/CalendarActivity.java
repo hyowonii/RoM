@@ -121,18 +121,10 @@ public class CalendarActivity extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                if (query.equals("정문")){
-                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                    intent.putExtra("t", "ok");
-                    startActivity(intent);
-                    finish();
-                }
-                else{
-                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                    intent.putExtra("t", "nope");
-                    startActivity(intent);
-                    finish();
-                }
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                intent.putExtra("query", query);
+                startActivity(intent);
+                finish();
                 return true;
             }
 

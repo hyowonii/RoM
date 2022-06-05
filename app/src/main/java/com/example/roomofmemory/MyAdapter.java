@@ -1,19 +1,22 @@
 package com.example.roomofmemory;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -21,10 +24,12 @@ import java.util.ArrayList;
 class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private ArrayList<MyData> mDataset;
     private Context mContext;
+    private String query;
 
-    public MyAdapter(Context context, ArrayList<MyData> myDataset) {
-        mContext = context;
-        mDataset = myDataset;
+    public MyAdapter(Context context, ArrayList<MyData> myDataset, String query) {
+        this.mContext = context;
+        this.mDataset = myDataset;
+        this.query = query;
     }
 
     // Create new views (invoked by the layout manager)
@@ -48,11 +53,12 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         String content = mDataset.get(position).content;
         SpannableString spannableString = new SpannableString(content);
 
-        String word = "정문";
+        //검색 단어
+        String word = this.query;
         int start = content.indexOf(word);
         int end = start + word.length();
 
-        // 타켓 word의 색상 변경
+        // 검색 단어의 색상 변경
         spannableString.setSpan(new BackgroundColorSpan(Color.YELLOW), start, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         holder.content.setText(spannableString);
@@ -85,10 +91,13 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    //클릭 이벤트
-                    int position = getAdapterPosition();
+                    int position = getAbsoluteAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
+                        DiaryDetailActivity.addDiaryBool = false;
+                        DiaryDetailActivity.searchBool = true;
                         Intent intent = new Intent(mContext, DiaryDetailActivity.class);
+                        intent.putExtra("content", content.getText().toString());
+                        intent.putExtra("thumbnail", R.drawable.photo2);
                         mContext.startActivity(intent);
                     }
                 }

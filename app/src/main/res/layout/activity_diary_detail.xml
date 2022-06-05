@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="10dp"
-                android:text="이화여니_니니"
+                android:text="hyowon"
                 android:textColor="@color/black"
                 android:textSize="16dp" />
 
@@ -169,7 +169,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="고양이 쏘 큩~~~"
+                android:text="공대 삼거리 사진도 올려줘"
                 android:textColor="@color/black"
                 android:textSize="16dp" />
         </LinearLayout>
