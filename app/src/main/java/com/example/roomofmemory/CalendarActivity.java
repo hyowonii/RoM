@@ -125,18 +125,6 @@ public class CalendarActivity extends AppCompatActivity {
                 intent.putExtra("query", query);
                 startActivity(intent);
                 finish();
-//                if (query.equals("정문")){
-//                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-//                    intent.putExtra("t", "ok");
-//                    startActivity(intent);
-//                    finish();
-//                }
-//                else{
-//                    Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-//                    intent.putExtra("t", "nope");
-//                    startActivity(intent);
-//                    finish();
-//                }
                 return true;
             }
 

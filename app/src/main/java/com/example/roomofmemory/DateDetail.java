@@ -1,7 +1,10 @@
 package com.example.roomofmemory;
 
+import static com.example.roomofmemory.WriteDiary.BitmapToString;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
@@ -39,6 +42,7 @@ public class DateDetail extends AppCompatActivity {
     Calendar cal;
     Date mDate;
     SimpleDateFormat mFormat = new SimpleDateFormat("yyyy / MM / dd");
+    SearchView searchView;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
@@ -149,15 +153,36 @@ public class DateDetail extends AppCompatActivity {
         diaryDetail1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DiaryDetailActivity.addDiaryBool = false;
+                DiaryDetailActivity.searchBool = true;
                 Intent intent = new Intent(getApplicationContext(), DiaryDetailActivity.class);
+                intent.putExtra("content", "정문에서 공학관 몇 분 컷 가능?\n 나 지금 이대역임ㅠ 근데 어제 하늘 봤어? 진짜 예뻤는데 또 보고싶다~~");
                 startActivity(intent);
             }
         });
         newDiary.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DiaryDetailActivity.addDiaryBool = true;
                 Intent intent = new Intent(getApplicationContext(), DiaryDetailActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        searchView = findViewById(R.id.dateDetailSearch);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                intent.putExtra("query", query);
+                startActivity(intent);
+                finish();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
             }
         });
     }

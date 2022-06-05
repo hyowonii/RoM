@@ -32,32 +32,27 @@
 
                 <TextView
                     android:id="@+id/textView8"
-                    android:layout_width="80dp"
-                    android:layout_height="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:background="@drawable/radius"
+                    android:background="@drawable/round_box"
                     android:backgroundTint="@color/main_color"
                     android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     android:text="Ewha"
                     tools:layout_editor_absoluteX="73dp"
                     tools:layout_editor_absoluteY="113dp" />
 
-                <EditText
-                    android:id="@+id/editTextTextEmailAddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:ems="10"
-                    android:hint="검색어를 입력하세요"
-                    android:inputType="text" />
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#00FFFFFF"
-                    android:contentDescription="search_btn"
-                    app:srcCompat="@android:drawable/ic_menu_search"
-                    app:tint="@color/black" />
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/dateDetailSearch"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    app:iconifiedByDefault="false"
+                    app:layout_constraintStart_toEndOf="@+id/textTop"
+                    app:queryHint="Search" />
             </LinearLayout>
 
             <LinearLayout
@@ -156,7 +151,7 @@
                         android:layout_width="61dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="right"
-                        android:src="@drawable/pic1" />
+                        android:src="@drawable/photo2" />
                 </LinearLayout>
 
                 <TextView
@@ -164,7 +159,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:textSize="18dp"
-                    android:text="역시 공대 내려오는 길 노을 맛집이다.."
+                    android:text="정문에서 공학관 몇 분 컷 가능?"
                     android:layout_marginTop="20dp"/>
 
                 <TextView
