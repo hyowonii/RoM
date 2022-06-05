@@ -86,7 +86,7 @@ class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 @Override
                 public void onClick(View view) {
                     //클릭 이벤트
-                    int position = getAbsoluteAdapterPosition();
+                    int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
                         Intent intent = new Intent(mContext, DiaryDetailActivity.class);
                         mContext.startActivity(intent);
