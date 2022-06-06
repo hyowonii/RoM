@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
@@ -27,6 +29,7 @@ public class SearchActivity extends AppCompatActivity {
     private ArrayList<String> searchList;
     private ImageView thumbnail;
     private SearchView searchView;
+    private TextView room_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +97,16 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public boolean onQueryTextChange(String newText) {
                 return false;
+            }
+        });
+
+        room_name = findViewById(R.id.textTop);
+        room_name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
