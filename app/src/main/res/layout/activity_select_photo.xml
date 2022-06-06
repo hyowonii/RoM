@@ -33,7 +33,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/main_color"
-            android:text="이미지 선택하기"/>
+            android:text="Select Photo/Video"
+            android:textAllCaps="false"/>
 
         <View
             android:layout_width="0dp"
