@@ -46,7 +46,7 @@ public class DiaryDetailActivity extends AppCompatActivity {
         if(addDiaryBool) {
             // 새로운 다이어리 작성 시 나타나는 내용
             //닉네임
-            diaryNickname.setText("_hyowon_");
+            diaryNickname.setText("hyowon");
             //내용
             newContentInput = pref.getString("newContentInput", newContentInput);
             newDiaryContent.setText(newContentInput);

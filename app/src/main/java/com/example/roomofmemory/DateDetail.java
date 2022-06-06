@@ -122,6 +122,15 @@ public class DateDetail extends AppCompatActivity {
             }
         });
 
+        txt_roomName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         imgBtn_before = findViewById(R.id.imageButton4);
         imgBtn_before.setOnClickListener(new View.OnClickListener() {
             @Override
