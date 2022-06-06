@@ -23,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -117,6 +119,15 @@ public class DateDetail extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), WriteDiary.class);
                 intent.putExtra("date",date);
                 startActivity(intent);
+            }
+        });
+
+        txt_roomName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
